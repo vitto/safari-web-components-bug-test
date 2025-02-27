@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/animations.css">
     <link rel="stylesheet" href="/css/colors-rgb.css">
     <link rel="stylesheet" href="/css/globals.css">
-    <link rel="stylesheet" href="/css/hydratred.css">
+    <link rel="stylesheet" href="/css/hydrated.css">
     <link rel="stylesheet" href="/css/reset.css">
     <!-- stencil generated content -->
     <link rel="stylesheet" href="/build/stencil-starter-project-name.css">
@@ -18,18 +18,15 @@
     <script nomodule src="/build/stencil-starter-project-name.js"></script>
   </head>
   <body class="p-600">
-    <!--mds-table>
-      <mds-table-header>
-      <mds-table-header-cell>Test</mds-table-header-cell>
-      <mds-table-header-cell>second col</mds-table-header-cell>
-      </mds-table-header>
-      <mds-table-body>
-        <mds-table-row>
-          <mds-table-cell>Test</mds-table-cell>
-          <mds-table-cell>second cell</mds-table-cell>
-        </mds-table-row>
-      </mds-table-body>
-    </mds-table-->
-    <mds-input placeholder="Focus this input to crash Safari"></mds-input>
+    <div class="grid gap-600">
+      <mds-input placeholder="Focus this input to crash Safari tab"></mds-input>
+      <mds-input-select placeholder="Click to crash Safari tab">
+        <option value="1">First contact</option>
+        <option value="2">Second impact</option>
+        <option value="3">The Third Man</option>
+        <option value="4">The Fourth Emendament</option>
+      </mds-input-select>
+      <mds-input-switch>Click text will work, click switch will crash Safari tab</mds-input-switch>
+    </div>
   </body>
 </html>

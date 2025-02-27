@@ -18,7 +18,7 @@ export class MdsTable {
   private rows: NodeListOf<HTMLMdsTableRowElement>
   private body: HTMLMdsTableBodyElement
   private header: HTMLMdsTableHeaderElement
-  private resizeObserver: ResizeObserver
+  // private resizeObserver: ResizeObserver
   private cellsWidth: number = 0
   @State() selectedRows: MdsTableRowSelection[] = []
 
@@ -128,15 +128,15 @@ export class MdsTable {
     this.handleSelection()
     if (this.hasActions()) {
       this.host.addEventListener('scroll', this.handleActions)
-      this.resizeObserver = new ResizeObserver(this.handleActions)
-      this.resizeObserver.observe(this.host)
+      // this.resizeObserver = new ResizeObserver(this.handleActions)
+      // this.resizeObserver.observe(this.host)
       this.handleActions()
     }
   }
 
   disconnectedCallback (): void {
     this.host.removeEventListener('scroll', this.handleActions)
-    this.resizeObserver.disconnect()
+    // this.resizeObserver.disconnect()
   }
 
   render () {
