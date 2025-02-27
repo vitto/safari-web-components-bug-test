@@ -1,0 +1,64 @@
+@tailwind components;
+body{
+
+  min-height: 1.5rem;
+
+  font-size: 1rem;
+
+  line-height: 1.5rem;
+
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: Karla, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  color: rgb(var(--theme-default-03-secondary-text, rgb(var(--theme-default-03-secondary-text))));
+}
+::-moz-selection {
+  background-color: var(--magma-selection-background, rgb(var(--label-sky-09)));
+  color: var(--magma-selection-color, rgb(var(--label-sky-01)));
+}
+::selection {
+  background-color: var(--magma-selection-background, rgb(var(--label-sky-09)));
+  color: var(--magma-selection-color, rgb(var(--label-sky-01)));
+}
+button,
+optgroup,
+select{
+
+  min-height: 1.5rem;
+
+  font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  font-size: 0.875rem;
+
+  line-height: 1.5rem;
+
+  font-weight: 500;
+
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+}
+b,
+strong{
+
+  font-weight: 600;
+
+  letter-spacing: -0.025em;
+}
+a {
+  color: rgb(var(--theme-default-02-primary-text, rgb(var(--theme-default-02-primary-text))));
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  max-width: 30ch;
+}
+p {
+  max-width: 75ch;
+}

@@ -1,0 +1,5 @@
+.stencil/
+dist/
+node_modules/
+public/stencil
+public/host.config.json

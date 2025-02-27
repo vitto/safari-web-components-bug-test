@@ -1,0 +1,157 @@
+html {
+  color-scheme: dark light;
+  hanging-punctuation: first last;
+  interpolate-size: allow-keywords;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+
+body,
+html {
+  margin: 0;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100svh;
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizelegibility;
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+}
+
+input,
+textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-family: inherit;
+}
+
+a {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+a,
+aside,
+body,
+code,
+div,
+datalist,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hr,
+html,
+input,
+li,
+main,
+section,
+span,
+ul,
+textarea {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  max-width: 30ch;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  max-width: 75ch;
+  text-wrap: pretty;
+}
+
+li,
+figcaption {
+  max-width: 75ch;
+  text-wrap: pretty;
+}
+
+header,
+footer,
+section,
+article {
+  container-type: inline-size;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  :has(:target) {
+    scroll-behavior: smooth;
+  }
+}
+
+@container style(--magma-pref-animation: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  :has(:target) {
+    scroll-behavior: smooth;
+  }
+}
+
+@container style(--magma-pref-animation: system) {
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :has(:target) {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@container style(--magma-pref-animation: reduce) {
+  html {
+    transition-duration: 0s;
+  }
+}
+
+@container style(--magma-pref-animation: system) {
+
+  @media (prefers-reduced-motion) {
+    html {
+      transition-duration: 0s;
+    }
+  }
+}

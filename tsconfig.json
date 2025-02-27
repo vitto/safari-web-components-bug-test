@@ -1,0 +1,74 @@
+{
+    "compilerOptions": {
+      "allowSyntheticDefaultImports": true,
+      "allowUnreachableCode": false,
+      "baseUrl": ".",
+      "declaration": false,
+      "experimentalDecorators": true,
+      "lib": [
+        "dom",
+        "es2017"
+      ],
+      "esModuleInterop": true,
+      "jsx": "react",
+      "jsxFactory": "h",
+      "module": "esnext",
+      "moduleResolution": "node",
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "resolveJsonModule": true,
+      "target": "es2017",
+      "paths": {
+        "@common/*": [
+          "src/common/*"
+        ],
+        "@component/*": [
+          "src/components/*"
+        ],
+        "@dictionary/*": [
+          "src/dictionary/*"
+        ],
+        "@event/*": [
+          "src/event-detail/*"
+        ],
+        "@fixture/*": [
+          "src/fixtures/*"
+        ],
+        "@meta/*": [
+          "src/meta/*"
+        ],
+        "@icon/*": [
+          "assets/svg/*"
+        ],
+        "@placeholder": [
+          "https://via.placeholder.com"
+        ],
+        "@tailwind/*": [
+          "src/tailwind/*"
+        ],
+        "@test/*": [
+          "src/test/*"
+        ],
+        "@type/*": [
+          "src/type/*"
+        ],
+        "react": [
+          "node_modules/react"
+        ]
+      },
+      "skipLibCheck": true,
+      "strictNullChecks": true
+    },
+    "include": [
+      "src"
+    ],
+    "exclude": [
+      "dist",
+      "loader",
+      "node_modules",
+      "template",
+      "www",
+      "scripts"
+    ]
+  }
+  
