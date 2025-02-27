@@ -2,4 +2,5 @@
 dist/
 node_modules/
 public/stencil
+public/build
 public/host.config.json
