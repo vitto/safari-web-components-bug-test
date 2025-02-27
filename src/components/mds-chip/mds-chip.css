@@ -1,0 +1,133 @@
+@import '~@maggioli-design-system/styles/dist/css/animations.css';
+@import '../../tailwind/components.css';
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * @prop --mds-chip-background: Sets the `background-color` of the component
+ * @prop --mds-chip-color: Sets the `color` of the component
+ * @prop --mds-chip-icon-background: Sets the `background-color` of the icon
+ * @prop --mds-chip-icon-background-selected: Sets the `background-color` color of the icon when the component is selected
+ * @prop --mds-chip-icon-color: Sets the `fill` color of the icon of the component
+ * @prop --mds-chip-opacity-disabled: Sets the `opacity` of the component when it's disabled
+ * @prop --mds-chip-backgroud-selected: Sets the `background-color` of the component when it's selected
+ * @prop --mds-chip-color-selected: Sets the `color` of the component when it's selected
+ * @prop --mds-chip-icon-color-selected: Sets the `fill` color of the icon of the component when it's selected
+ */
+
+:host {
+
+  /* --mds-chip-backgroud-selected: theme('colors.tone-neutral-08');
+  --mds-chip-border-selected: theme('colors.variant-primary-04');
+  --mds-chip-color-selected: theme('colors.tone-neutral-01');
+  --mds-chip-icon-background-selected: theme('colors.variant-primary-04');
+  --mds-chip-icon-color-selected: theme('colors.tone-neutral'); */
+
+  --mds-chip-background: theme('colors.tone-neutral');
+  --mds-chip-border: transparent;
+  --mds-chip-color: theme('colors.tone-neutral-03');
+  --mds-chip-icon-background: theme('colors.variant-primary-06');
+  --mds-chip-icon-color: theme('colors.tone-neutral');
+  --mds-chip-opacity-disabled: var(--opacity-disabled, 0.5);
+  --mds-chip-shadow: theme('boxShadow.sharp');
+
+  @apply
+    duration-150
+    ease-in-out
+    gap-150
+    h-900
+    py-150
+    px-100
+    rounded-full;
+
+  align-items: center;
+  background-color: var(--mds-chip-background);
+  border: 2px solid var(--mds-chip-border);
+  box-shadow: var(--mds-chip-shadow);
+  box-sizing: border-box;
+  color: var(--mds-chip-color);
+  display: inline-flex;
+  justify-content: center;
+  transition-property: background-color, border-color, box-shadow, color, opacity;
+}
+
+
+:host( [disabled]:not([disabled="false"]) ) {
+  opacity: var(--mds-chip-opacity-disabled);
+  pointer-events: none;
+}
+
+.label {
+  @apply
+    duration-200
+    ease-out
+    rounded-full;
+
+  flex-grow: 1;
+  text-decoration-color: transparent;
+  transition-property: color, text-decoration-color, outline, outline-offset;
+}
+
+:host( [clickable]:not([clickable="false"]) ) .label {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+:host( [clickable]:not([clickable="false"]) ) .label:hover {
+  text-decoration-color: unset;
+}
+
+.label:first-child {
+  @apply pl-200;
+}
+
+.label:last-child {
+  @apply pr-200;
+}
+
+.label--interactive {
+  @apply focus-bounce;
+}
+
+.label--interactive:focus-visible {
+  @apply
+    focus-bounce--focused
+    z-10;
+}
+
+.icon-area {
+  @apply
+    h-600
+    justify-center
+    rounded-full
+    w-600;
+
+  align-items: center;
+  background-color: var(--mds-chip-icon-background);
+  display: flex;
+  flex-shrink: 0;
+  transition-duration: inherit;
+  transition-timing-function: inherit;
+}
+
+.icon {
+  @apply
+    duration-200
+    h-400
+    w-400;
+
+  fill: var(--mds-chip-icon-color);
+  transition: fill;
+}
+
+.button-delete {
+  border-radius: 100px;
+  height: auto;
+  padding: 0;
+}
+
+@import './css/mds-chip-variant.css';
+@import './css/mds-chip-pref-animation.css';
+@import './css/mds-chip-pref-theme.css';
+@import './css/mds-chip-pref-contrast.css';
+@import '../../tailwind/fouc.css';

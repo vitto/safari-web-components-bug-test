@@ -29,6 +29,7 @@
     "@maggioli-design-system/styles": "15.8.0",
     "@stencil-community/postcss": "2.2.0",
     "@stencil/core": "4.25.1",
+    "@types/node": "22.13.5",
     "autoprefixer": "10.4.20",
     "clsx": "2.1.0",
     "crypto-js": "4.2.0",

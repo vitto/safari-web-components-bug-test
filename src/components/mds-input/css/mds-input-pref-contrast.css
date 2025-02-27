@@ -2,22 +2,26 @@
 
 @container style(--magma-pref-contrast: more) {
   :host {
-    --mds-input-ring: theme("boxShadow.outline-strong-50");
+
+    --mds-input-ring: theme('boxShadow.outline-strong-50');
   }
 
   .input::placeholder {
-    color: theme("colors.tone-neutral-03");
+    color: theme('colors.tone-neutral-03');
   }
 }
 
 @container style(--magma-pref-contrast: system) {
+
   @media (prefers-contrast: more) {
     :host {
-      --mds-input-ring: theme("boxShadow.outline-strong-50");
+
+      --mds-input-ring: theme('boxShadow.outline-strong-50');
     }
 
     .input::placeholder {
-      color: theme("colors.tone-neutral-03");
+      color: theme('colors.tone-neutral-03');
     }
   }
 }
+

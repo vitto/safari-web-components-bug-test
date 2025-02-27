@@ -9,6 +9,8 @@
   visibility: hidden;
 }
 
+/* TODO refact(stencil): Uses only used selector from parent shadowDOM component */
+
 mds-accordion:not(:is([hydrated], .hydrated)),
 mds-accordion-item:not(:is([hydrated], .hydrated)),
 mds-accordion-timer:not(:is([hydrated], .hydrated)),
@@ -103,7 +105,8 @@ mds-tree-item:not(:is([hydrated], .hydrated)),
 mds-url-view:not(:is([hydrated], .hydrated)),
 mds-usage:not(:is([hydrated], .hydrated)),
 mds-video-wall:not(:is([hydrated], .hydrated)),
-mds-zero:not(:is([hydrated], .hydrated)) {
+mds-zero:not(:is([hydrated], .hydrated))
+{
   animation-duration: 0s;
   border-color: transparent;
   box-shadow: 0 0 0 transparent;

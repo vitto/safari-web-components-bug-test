@@ -1,0 +1,93 @@
+@tailwind utilities;
+
+/**
+ * @prop --mds-banner-background: Sets the background-color of the component
+ * @prop --mds-banner-color: Sets the text color of the component
+ * @prop --mds-banner-close-icon-hover-background: Sets the background color of the close icon when the mouse is over it
+ * @prop --mds-banner-gap: Sets gap between banner elements
+ * @prop --mds-banner-icon-color: Sets the close icon fill color of the component
+ * @prop --mds-banner-radius: Sets the border-radius of the component
+ * @prop --mds-banner-shadow: Sets the box-shadow of the component
+ */
+
+  :host {
+
+  --mds-banner-background: theme('colors.tone-neutral-10');
+  --mds-banner-close-icon-hover-background: theme('colors.tone-neutral-09');
+  --mds-banner-color: theme('colors.tone-neutral-02');
+  --mds-banner-gap: theme('spacing.400');
+  --mds-banner-icon-color: theme('colors.tone-neutral-04');
+  --mds-banner-radius: theme('borderRadius.lg');
+  --mds-banner-shadow: none;
+
+  @apply
+    duration-300
+    ease-in-out-expo
+    p-600;
+
+  background-color: var(--mds-banner-background);
+  border-radius: var(--mds-banner-radius);
+  box-shadow: var(--mds-banner-shadow);
+  color: var(--mds-banner-color);
+  display: grid;
+  gap: var(--mds-banner-gap);
+  transition-property: background-color, box-shadow, color;
+}
+
+.body {
+  align-items: flex-start;
+  display: flex;
+  gap: var(--mds-banner-gap);
+  justify-content: space-between;
+}
+
+.content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--mds-banner-gap);
+  justify-content: center;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mds-banner-gap);
+  justify-content: flex-end;
+}
+
+.close-button {
+
+  --mds-button-background: transparent;
+
+  fill: var(--mds-banner-color);
+}
+
+.close-button:hover {
+
+  --mds-button-background: var(--mds-banner-close-icon-hover-background);
+}
+
+.icon {
+  fill: var(--mds-banner-icon-color);
+  flex-shrink: 0;
+}
+
+.text {
+  display: grid;
+  flex-grow: 1;
+  gap: var(--mds-banner-gap);
+}
+
+@import './css/mds-banner-variant-dark.css';
+@import './css/mds-banner-variant-error.css';
+@import './css/mds-banner-variant-info.css';
+@import './css/mds-banner-variant-light.css';
+@import './css/mds-banner-variant-primary.css';
+@import './css/mds-banner-variant-success.css';
+@import './css/mds-banner-variant-warning.css';
+@import './css/mds-banner-pref-animation.css';
+@import './css/mds-banner-pref-theme.css';
+@import './css/mds-banner-pref-contrast.css';
+@import '../../tailwind/fouc.css';

@@ -1,0 +1,137 @@
+@import '../../tailwind/components.css';
+@tailwind utilities;
+
+/**
+ * @prop --mds-avatar-background-color-pending: The background-color when an image is loading
+ * @prop --mds-avatar-background-color: The background-color of the component
+ * @prop --mds-avatar-color: The color of the placeholder icon
+ * @prop --mds-avatar-radius: The border-radius of the element
+ */
+
+:host {
+
+  --mds-avatar-background-color-pending: theme('colors.tone-neutral-08');
+  --mds-avatar-background-color: theme('colors.variant-primary-05');
+  --mds-avatar-color: theme('colors.variant-primary-10');
+  --mds-avatar-radius: theme('borderRadius.full');
+  --mds-avatar-initials-padding: 20%;
+
+  aspect-ratio: 1/1;
+  border-radius: var(--mds-avatar-radius);
+  container-name: mds-avatar;
+  container-type: inline-size;
+  display: inline-flex;
+  overflow: hidden;
+  width: theme('spacing.1200');
+}
+
+.avatar {
+  @apply duration-200;
+
+  aspect-ratio: 1/1;
+  border-radius: var(--mds-avatar-radius);
+  color: transparent;
+  display: inline-flex;
+  overflow: hidden;
+  transition-property: color, background-color, box-shadow, fill;
+  width: 100%;
+}
+
+.avatar--pending {
+  background-color: var(--mds-avatar-background-color-pending);
+}
+
+.avatar--loaded {
+  animation: none;
+}
+
+.avatar--icon,
+.avatar--fallback,
+.avatar--initials {
+  background-color: var(--mds-avatar-background-color);
+  box-shadow: none;
+}
+
+.avatar--fallback,
+.avatar--initials {
+  align-items: stretch;
+  display: flex;
+  justify-items: stretch;
+}
+
+.avatar--icon,
+.avatar--fallback {
+  padding: 20%;
+}
+
+.avatar--initials {
+  padding: 30% var(--mds-avatar-initials-padding) 25%;
+}
+
+.image {
+  aspect-ratio: 1/1;
+  border-radius: var(--mds-avatar-radius);
+}
+
+.fallback-icon {
+  @apply svg;
+
+  aspect-ratio: 1/1;
+  fill: var(--mds-avatar-color);
+  width: 100%;
+}
+
+
+.initials-text {
+
+  @apply
+    font-title
+    font-bold;
+
+  align-items: center;
+  color: var(--mds-avatar-color);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  text-transform: uppercase;
+  user-select: none;
+  width: 100%;
+}
+
+:host([initials]) .initials-text {
+
+  --mds-avatar-color: theme('colors.tone-neutral');
+}
+
+.fit {
+  display: inline-block;
+  white-space: nowrap !important;
+}
+
+.icon {
+
+  @apply
+    duration-300
+    ease-in-out-expo;
+
+  fill: var(--mds-avatar-color);
+  height: 100%;
+  transition-property: fill;
+  width: 100%;
+}
+
+@import './css/mds-avatar-variant.css';
+@import './css/mds-avatar-pref-animation.css';
+@import './css/mds-avatar-pref-contrast.css';
+
+@container (max-width: 24px) {
+  .avatar--initials {
+    padding: 0 var(--mds-avatar-initials-padding);
+  }
+
+  .initials-text {
+    @apply font-black;
+  }
+}
+
+@import '../../tailwind/fouc.css';

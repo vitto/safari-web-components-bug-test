@@ -1,0 +1,16 @@
+@tailwind utilities;
+
+:host {
+
+  @apply
+    gap-400
+    p-400;
+
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+@import '../../tailwind/fouc.css';

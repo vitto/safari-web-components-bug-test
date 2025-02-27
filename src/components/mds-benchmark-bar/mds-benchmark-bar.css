@@ -1,0 +1,29 @@
+@tailwind utilities;
+
+:host {
+  @apply
+    gap-100
+    grid-cols-full;
+
+  display: grid;
+}
+
+.infos {
+  @apply gap-100;
+
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.value {
+  flex-shrink: 0;
+}
+
+.label {
+  @apply truncate;
+
+  min-width: 0;
+}
+
+@import '../../tailwind/fouc.css';

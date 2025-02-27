@@ -1,0 +1,30 @@
+@tailwind utilities;
+
+@container style(--magma-pref-animation: reduce) {
+  :host,
+  .action-close,
+  .window {
+    transition-duration: 0s !important;
+  }
+
+  :host {
+
+    --mds-modal-transition-duration: 0s;
+  }
+}
+
+@container style(--magma-pref-animation: system) {
+
+  @media (prefers-reduced-motion) {
+    :host,
+    .action-close,
+    .window {
+      transition-duration: 0s !important;
+    }
+
+    :host {
+
+      --mds-modal-transition-duration: 0s;
+    }
+  }
+}

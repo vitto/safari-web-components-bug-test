@@ -1,0 +1,20 @@
+@tailwind utilities;
+
+@container style(--magma-pref-contrast: more) {
+  :host {
+
+    --mds-tab-item-selected-color: theme('colors.tone-neutral-01');
+    --mds-tab-item-selected-shadow: theme('boxShadow.outline-strong-50');
+  }
+}
+
+@container style(--magma-pref-contrast: system) {
+
+  @media (prefers-contrast: more) {
+    :host {
+
+      --mds-tab-item-selected-color: theme('colors.tone-neutral-01');
+      --mds-tab-item-selected-shadow: theme('boxShadow.outline-strong-50');
+    }
+  }
+}

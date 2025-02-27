@@ -1,0 +1,47 @@
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * @prop --mds-input-field-message-color: Sets the message text color of the component
+ * @prop --mds-input-field-message-background: Sets the message background color of the component, will be visible only if there is a text defined by `tip` component attribute
+ */
+
+:host {
+
+  --mds-input-field-message-color: theme('colors.tone-neutral-03');
+  --mds-input-field-message-background: transparent;
+
+  @apply gap-200;
+
+  color: theme('colors.tone-neutral-02');
+  display: grid;
+}
+
+.message-window {
+  @apply
+    duration-300
+    ease-out-expo
+    gap-200
+    p-0
+    rounded-xl;
+
+  background-color: var(--mds-input-field-message-background);
+  color: var(--mds-input-field-message-color);
+  display: grid;
+  transition-property: background-color, color;
+}
+
+.message-window--opened {
+  @apply
+    p-200;
+}
+
+.message {
+  @apply
+    pb-200
+    pt-100
+    px-200;
+}
+
+@import './css/mds-input-field-variant.css';
+@import '../../tailwind/fouc.css';

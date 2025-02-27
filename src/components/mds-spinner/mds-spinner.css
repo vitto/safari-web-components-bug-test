@@ -1,0 +1,55 @@
+@tailwind utilities;
+
+/**
+ * @prop --mds-spinner-duration: Sets the duration of the icon animation
+ */
+
+:host {
+
+  --mds-spinner-duration: 0.725s;
+
+  @apply
+    duration-300
+    ease-in-out-quart
+    h-1200
+    w-1200;
+
+  align-items: center;
+  color: theme('colors.variant-primary-03');
+  display: inline-flex;
+  justify-content: center;
+  transform: scale(0);
+  transition-property: transform;
+}
+
+:host([running]:not([running="false"])) {
+  @apply
+    duration-700
+    ease-in-out-expo;
+
+  transform: scale(1);
+}
+
+.await-icon {
+  @apply
+    animate-spin
+    aspect-square
+    duration-300
+    ease-out
+    w-full;
+
+  animation-duration: var(--mds-spinner-duration);
+  animation-play-state: paused;
+  display: flex;
+  flex-shrink: 0;
+  stroke: currentcolor;
+  transition-property: stroke;
+}
+
+:host([running]:not([running="false"])) .await-icon {
+  animation-play-state: running;
+}
+
+@import './css/mds-spinner-pref-animation.css';
+@import './css/mds-spinner-pref-contrast.css';
+@import '../../tailwind/fouc.css';

@@ -1,0 +1,16 @@
+@tailwind components;
+@tailwind utilities;
+
+:host {
+  @apply
+    h-100
+    rounded
+    w-full;
+
+  background-color: theme('colors.tone-neutral-08');
+  border: 0;
+  display: flex;
+}
+
+@import './css/mds-hr-pref-theme.css';
+@import '../../tailwind/fouc.css';

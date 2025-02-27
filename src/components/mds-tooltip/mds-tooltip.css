@@ -1,0 +1,94 @@
+@tailwind utilities;
+
+/**
+ * @prop --mds-tooltip-arrow-background: Sets the fill color of the arrow.
+ * @prop --mds-tooltip-background: Sets the background-color of the tooltip.
+ * @prop --mds-tooltip-delay: Sets the delay of the tooltip.
+ * @prop --mds-tooltip-drop-shadow: Sets the drop-shadow of the tooltip.
+ * @prop --mds-tooltip-duration: Sets the duration of the tooltip animation.
+ * @prop --mds-tooltip-ease: Sets the easing of the tooltip animation.
+ * @prop --mds-tooltip-transform-from: Sets the from animation transform of the tooltip.
+ * @prop --mds-tooltip-transform-to: Sets the to animation transform of the tooltip.
+ * @prop --mds-tooltip-z-index: Sets the z-index of the component.
+ */
+
+:host {
+
+  --mds-tooltip-arrow-background: var(--mds-tooltip-background);
+  --mds-tooltip-background: theme('colors.tone-neutral');
+  --mds-tooltip-delay: 1s;
+  --mds-tooltip-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1)) drop-shadow(0 0 1px rgb(0 0 0 / 0.1));
+  --mds-tooltip-duration: 0.5s;
+  --mds-tooltip-ease: theme('transitionTimingFunction.out-expo');
+  --mds-tooltip-dot-padding: theme('spacing.100');
+  --mds-tooltip-transform-from: scale(0.9) translateY(-3%);
+  --mds-tooltip-transform-to: scale(1) translate(0, 0);
+  --mds-tooltip-z-index: var(--magma-tooltip-z-index, 4000);
+
+  @apply
+    gap-400
+    px-200
+    py-0
+    rounded;
+
+  background-color: var(--mds-tooltip-background);
+  box-sizing: border-box;
+  display: grid;
+  filter: var(--mds-tooltip-drop-shadow);
+  max-width: theme('spacing.6400');
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  transform: var(--mds-tooltip-transform-from);
+  transition-delay: 0;
+  transition-duration: var(--mds-tooltip-duration);
+  transition-property: opacity, transform, transform-origin;
+  transition-timing-function: var(--mds-tooltip-ease);
+  width: fit-content;
+  z-index: var(--mds-tooltip-z-index);
+}
+
+:host( [strategy="absolute"] ) {
+  position: absolute;
+}
+
+:host( [strategy="fixed"] ) {
+  position: fixed;
+}
+
+:host( [visible]:not([visible="false"]) ) {
+  opacity: 1;
+  pointer-events: auto;
+  transform: var(--mds-tooltip-transform-to);
+  transition-delay: var(--mds-tooltip-delay);
+}
+
+.text {
+  display: inline-flex;
+  padding: var(--mds-tooltip-dot-padding);
+}
+
+.arrow {
+  @apply
+    duration-300
+    ease-in-out;
+
+  display: flex;
+  fill: var(--mds-tooltip-arrow-background);
+  pointer-events: none;
+  position: fixed;
+  top: -9px;
+  transition-property: fill;
+  z-index: -1;
+}
+
+::slotted( * ) {
+  @apply z-10;
+
+  position: relative;
+}
+
+@import './css/mds-tooltip-pref-animation.css';
+@import './css/mds-tooltip-pref-theme.css';
+@import './css/mds-tooltip-pref-contrast.css';
+@import '../../tailwind/fouc.css';

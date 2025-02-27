@@ -1,0 +1,28 @@
+@tailwind components;
+@tailwind utilities;
+
+:host {
+  @apply
+    aspect-square
+    w-600;
+
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.icon {
+  align-items: center;
+  display: inline-flex;
+  font-style: normal;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.icon svg {
+  height: auto;
+  width: 100%;
+}
+
+@import '../../tailwind/fouc.css';

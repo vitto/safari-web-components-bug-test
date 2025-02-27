@@ -1,0 +1,89 @@
+@tailwind utilities;
+
+/**
+ * @prop --mds-kpi-item-icon-color: Set the fill color of the icon element
+ * @prop --mds-kpi-item-info-background: Set the `background-color` of the text area element
+ * @prop --mds-kpi-item-text-animation-placeholder-char: Sets the animation placeholder char of the text
+ * @prop --mds-kpi-item-text-animation-speed: Sets the animation speed of the text
+ */
+
+:host {
+
+  --mds-kpi-item-icon-color: theme('colors.variant-primary-04');
+  --mds-kpi-item-info-background: theme('colors.tone-neutral');
+  --mds-kpi-item-text-animation-placeholder-char: var(--mds-kpi-text-animation-placeholder-char, " ");
+  --mds-kpi-item-text-animation-speed: var(--mds-kpi-text-animation-speed, 0.15);
+
+  @apply
+    duration-300
+    ease-out
+    gap-0;
+
+  aspect-ratio: 1;
+  background-color: theme('colors.variant-primary-10');
+  border-radius: theme('borderRadius.2xl');
+  box-shadow: theme('boxShadow.lg');
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: theme('spacing.400');
+  transition-property: background-color, box-shadow;
+}
+
+.icon-container {
+
+  @apply
+    duration-300
+    ease-out;
+
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  transition-property: background-color;
+}
+
+.icon {
+  @apply
+    duration-300
+    ease-out;
+
+  fill: var(--mds-kpi-item-icon-color);
+  transition-property: fill;
+  width: 40%;
+}
+
+.info {
+  @apply
+    duration-300
+    ease-out
+    gap-0;
+
+  background-color: var(--mds-kpi-item-info-background);
+  border-radius: theme('borderRadius.lg');
+  box-shadow: theme('boxShadow.sm');
+  display: grid;
+  flex-shrink: 0;
+  justify-content: center;
+  padding: theme('spacing.400');
+  text-align: center;
+  transition-property: background-color, border-radius, box-shadow;
+}
+
+.label,
+.description {
+
+  @apply
+    duration-300
+    ease-out;
+
+  --mds-text-animation-speed: var(--mds-kpi-item-text-animation-speed);
+  --mds-text-animation-placeholder-char: var(--mds-kpi-item-text-animation-placeholder-char);
+
+  transition-property: fill;
+}
+
+@import './css/mds-kpi-item-pref-animation.css';
+@import './css/mds-kpi-item-pref-contrast.css';
+@import './css/mds-kpi-item-pref-theme.css';
+@import '../../tailwind/fouc.css';

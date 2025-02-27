@@ -1,0 +1,23 @@
+@tailwind utilities;
+
+:host {
+  display: inline-flex
+}
+
+.open-quote {
+  flex-shrink: 0;
+}
+
+.quote {
+  @apply gap-400;
+
+  display: grid;
+  user-select: all;
+}
+
+span {
+  user-select: none;
+}
+
+@import './css/mds-quote-pref-contrast.css';
+@import '../../tailwind/fouc.css';

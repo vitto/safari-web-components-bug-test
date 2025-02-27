@@ -1,0 +1,98 @@
+@import '~@maggioli-design-system/styles/dist/css/animations.css'; /* included for focus effect */
+@import '../../tailwind/components.css';
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * @prop --mds-details-icon-color: Sets the icon color the component
+ * @prop --mds-details-helper-icon-color: Sets icon color of the helper icon of the component
+ */
+
+:host {
+
+  --mds-details-duration: 300ms;
+  --mds-details-icon-color: theme('colors.variant-primary-04');
+  --mds-details-helper-icon-color: theme('colors.tone-neutral-03');
+
+  @apply gap-200;
+
+  align-items: flex-start;
+  display: flex;
+}
+
+.content {
+  display: grid;
+}
+
+.details {
+  @apply
+    gap-400
+    opacity-0
+    pt-0;
+
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  pointer-events: none;
+  transition-duration: var(--mds-details-duration);
+  transition-property: grid-template-rows opacity padding;
+}
+
+.content-expander {
+  @apply gap-400;
+
+  display: grid;
+  min-height: 0;
+}
+
+.details.opened {
+  @apply pt-400;
+
+  grid-template-rows: 1fr;
+  opacity: 1;
+  overflow: visible;
+  pointer-events: auto;
+}
+
+.header {
+  @apply gap-200;
+
+  align-items: center;
+  display: inline-flex;
+}
+
+.icon {
+  cursor: pointer;
+  fill: var(--mds-details-icon-color);
+}
+
+.title {
+  cursor: pointer;
+}
+
+.helper-icon {
+  @apply
+    duration-300
+    ease-in-out-expo
+    svg;
+
+  cursor: pointer;
+  fill: var(--mds-details-helper-icon-color);
+  flex-shrink: 0;
+  rotate: 0deg;
+  transition-property: transform;
+}
+
+.helper-icon.opened {
+  rotate: 180deg;
+}
+
+.actions {
+  @apply gap-400;
+
+  display: flex;
+}
+
+@import './css/mds-details-pref-animation.css';
+@import './css/mds-details-pref-contrast.css';
+@import '../../tailwind/fouc.css';

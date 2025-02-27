@@ -1,0 +1,134 @@
+@import '~@maggioli-design-system/styles/dist/css/animations.css'; /* included for focus effect */
+@import '../../tailwind/components.css';
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * @prop --mds-accordion-item-border-color: Sets the border-color of the component
+ * @prop --mds-accordion-item-border-width: Sets the border-width of the separators of the component
+ * @prop --mds-accordion-item-color: Sets the text-color of the component
+ * @prop --mds-accordion-item-description-color: Sets the color of the always visible title description
+ * @prop --mds-accordion-item-duration: Sets the transition duration of the close/open animation of the component
+ * @prop --mds-accordion-item-padding-selected: Sets the vertical padding of the component when it's selected
+ * @prop --mds-accordion-item-padding-unselected: Sets the vertical padding of the component when it's unselected
+ */
+
+:host {
+
+  --mds-accordion-item-border-color: var(--mds-accordion-border-color, theme('colors.tone-neutral-08'));
+  --mds-accordion-item-border-width: var(--mds-accordion-border-width, 2px);
+  --mds-accordion-item-color: var(--mds-accordion-color, theme('colors.tone-neutral-03'));
+  --mds-accordion-item-description-color: var(--mds-accordion-description-color, theme('colors.tone-neutral-02'));
+  --mds-accordion-item-duration: var(--mds-accordion-duration, 300ms);
+  --mds-accordion-item-padding-selected: var(--mds-accordion-padding-selected, theme('spacing.400') 0 theme('spacing.800') 0);
+  --mds-accordion-item-padding-unselected: var(--mds-accordion-padding-unselected, theme('spacing.400') 0 theme('spacing.400') 0);
+
+  @apply
+    duration-500
+    ease-out-expo;
+
+  border-bottom: solid var(--mds-accordion-item-border-width) transparent;
+  border-top: solid var(--mds-accordion-item-border-width) transparent;
+  color: var(--mds-accordion-item-color);
+  display: grid;
+  fill: var(--mds-accordion-item-color);
+  margin-top: calc(-1 * var(--mds-accordion-item-border-width));
+  padding: var(--mds-accordion-item-padding-unselected);
+  position: relative;
+  transition-property: background-color, border-color, color, fill, margin, padding;
+}
+
+:host(:first-child) {
+  margin-top: 0;
+}
+
+.action {
+  @apply
+    focus-bounce
+    gap-400
+    rounded-lg;
+
+  background-color: transparent;
+  border: 0;
+  color: var(--mds-accordion-item-description-color);
+  cursor: pointer;
+  display: grid;
+  grid-auto-columns: min-content;
+  grid-template-columns: auto 24px;
+  padding: 0;
+  text-align: left;
+}
+
+.action:focus-visible {
+  @apply focus-bounce--focused;
+}
+
+.icon-button {
+  @apply font-normal;
+
+  display: block;
+}
+
+.content {
+  @apply
+    ease-in-out-expo
+    gap-400;
+
+  display: grid;
+  grid-template-rows: 0fr;
+  min-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding-top: 0;
+  transition-duration: var(--mds-accordion-item-duration);
+  transition-property: grid-template-rows opacity padding;
+}
+
+.content-expander {
+  min-height: 0;
+}
+
+.icon {
+  @apply
+    duration-500
+    ease-out-expo
+    svg;
+
+  fill: var(--mds-accordion-item-color);
+  transform: rotate(180deg);
+  transition-property: transform;
+}
+
+:host( [selected]:not([selected="false"]) ) {
+  border-bottom: solid var(--mds-accordion-item-border-width) var(--mds-accordion-item-border-color);
+  border-top: solid var(--mds-accordion-item-border-width) var(--mds-accordion-item-border-color);
+  padding: var(--mds-accordion-item-padding-selected);
+}
+
+:host( [selected]:not([selected="false"]):first-child ) {
+  @apply mt-0;
+
+  border-top-color: transparent;
+}
+
+:host( [selected]:not([selected="false"]):last-child ) {
+  @apply mb-0;
+
+  border-bottom-color: transparent;
+}
+
+:host( [selected]:not([selected="false"]) ) .content {
+  @apply pt-400;
+
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+:host( [selected]:not([selected="false"]) ) .icon {
+  transform: rotate(0deg);
+}
+
+@import './css/mds-accordion-item-pref-animation.css';
+@import './css/mds-accordion-item-pref-theme.css';
+@import './css/mds-accordion-item-pref-contrast.css';
+@import '../../tailwind/fouc.css';

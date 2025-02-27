@@ -1,0 +1,24 @@
+@tailwind utilities;
+
+:host( [variant="light"] ) {
+
+  --mds-badge-color: theme('colors.tone-neutral-03');
+}
+
+:host( [variant="light"][tone="strong"] ) {
+
+  --mds-badge-background: theme('colors.tone-neutral-10');
+  --mds-badge-color: theme('colors.tone-neutral-03');
+}
+
+:host( [variant="light"][tone="weak"] ) {
+
+  --mds-badge-background: theme('colors.tone-neutral-10');
+  --mds-badge-color: theme('colors.tone-neutral-03');
+}
+
+:host( [variant="light"][tone="ghost"] ) {
+
+  --mds-badge-color: theme('colors.tone-neutral-02');
+  --mds-badge-border-color: theme('colors.tone-neutral-09');
+}

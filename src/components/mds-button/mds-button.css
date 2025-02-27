@@ -1,0 +1,92 @@
+@import '~@maggioli-design-system/styles/dist/tailwind/typography.css';
+@import '~@maggioli-design-system/styles/dist/css/animations.css';
+@import '../../tailwind/components.css';
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * @prop --mds-button-await-duration: Sets the duration of the rotation of the spinner await component
+ * @prop --mds-button-background: Sets the background-color of the component
+ * @prop --mds-button-border-color: Sets the border-color of the component
+ * @prop --mds-button-color: Sets the text color of the component
+ * @prop --mds-button-gap: Sets the distance betwen element inside the components, use it instead of setting gap property directly.
+ * @prop --mds-button-radius: Sets the border-radius of the component
+ */
+
+:host {
+
+  --mds-button-await-duration: 0.725s;
+  --mds-button-background: theme('colors.variant-primary-02');
+  --mds-button-border-color: transparent;
+  --mds-button-color: theme('colors.tone-neutral');
+  --mds-button-gap: theme('spacing.200');
+  --mds-button-line-clamp: 1;
+  --mds-button-radius: theme('borderRadius.lg');
+
+  @apply
+    duration-200
+    ease-out
+    focus-bounce
+    px-600
+    py-200;
+
+  align-items: center;
+  background-color: var(--mds-button-background);
+  border-color: var(--mds-button-border-color, transparent);
+  border-radius: var(--mds-button-radius);
+  border-style: solid;
+  border-width: theme('borderWidth.2');
+  box-sizing: border-box;
+  color: var(--mds-button-color);
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  gap: var(--mds-button-gap);
+  justify-content: center;
+  position: relative;
+  transition-property: background-color, border-color, box-shadow, color, transform, outline, outline-offset;
+  user-select: none;
+}
+
+:host(:focus-visible) {
+  @apply
+    focus-bounce--focused
+    z-10;
+}
+
+.text {
+
+  --mds-text-line-clamp: var(--mds-button-line-clamp);
+}
+
+.text::first-letter {
+  text-transform: uppercase;
+}
+
+.icon {
+  @apply
+    duration-300
+    ease-in-out;
+
+  align-items: center;
+  display: inline-flex;
+  fill: inherit;
+  flex-shrink: 0;
+  justify-content: center;
+  pointer-events: none;
+  transition-property: fill;
+}
+
+@import './css/mds-button-variant-primary.css';
+@import './css/mds-button-variant-secondary.css';
+@import './css/mds-button-variant-dark.css';
+@import './css/mds-button-variant-light.css';
+@import './css/mds-button-variant-error.css';
+@import './css/mds-button-variant-warning.css';
+@import './css/mds-button-variant-info.css';
+@import './css/mds-button-variant-success.css';
+@import './css/mds-button-size.css';
+@import './css/mds-button-await.css';
+@import './css/mds-button-disabled.css';
+@import './css/mds-button-pref-animation.css';
+@import '../../tailwind/fouc.css';

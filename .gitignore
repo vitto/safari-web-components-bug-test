@@ -1,6 +1,14 @@
 .stencil/
 dist/
+www/
 node_modules/
-public/stencil
-public/build
+public/stencil/
+public/build/
 public/host.config.json
+src/components/**/.gitlab-ci.yml
+src/components/**/documentation.json
+src/components/**/package.json
+src/components/**/readme.md
+src/components/**/test/
+src/components.d.ts
+src/global.d.ts

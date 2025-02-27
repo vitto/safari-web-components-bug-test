@@ -1,0 +1,20 @@
+@tailwind utilities;
+
+:host {
+
+  @apply gap-400;
+
+  display: grid;
+}
+
+:host(:empty) {
+  display: none;
+}
+
+.reload-required {
+  @apply gap-200;
+
+  display: grid;
+}
+
+@import '../../tailwind/fouc.css';

@@ -1,0 +1,33 @@
+@tailwind utilities;
+
+:host {
+  @apply gap-400;
+
+  align-items: center;
+  container-name: mds-author;
+
+  /* container-type: inline-size; */
+  display: flex;
+}
+
+.avatar {
+  display: flex;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.info {
+  display: grid;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+@container (max-width: 200px) {
+  :host {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@import '../../tailwind/fouc.css';

@@ -1,0 +1,128 @@
+@tailwind utilities;
+
+/**
+ * @prop --mds-entity-background: The background-color of the entity
+ * @prop --mds-entity-color: The color of the entity name
+ * @prop --mds-entity-detail-color: The color of the text details
+ * @prop --mds-entity-icon-background: The background-color of the icon
+ * @prop --mds-entity-icon-color: The color of the icon
+ * @prop --mds-entity-shadow: The box-shadow od the component
+ */
+
+:host {
+
+  --mds-entity-background: theme('colors.tone-neutral');
+  --mds-entity-color: theme('colors.tone-neutral-02');
+  --mds-entity-detail-color: theme('colors.tone-neutral-03');
+  --mds-entity-icon-background: theme('colors.label-blue-09');
+  --mds-entity-icon-radius: theme('borderRadius.DEFAULT');
+  --mds-entity-icon-color: theme('colors.label-blue-04');
+  --mds-entity-shadow: theme('boxShadow.DEFAULT');
+
+  @apply
+    gap-200
+    p-200
+    rounded-lg;
+
+  align-items: stretch;
+  background-color: var(--mds-entity-background);
+  box-shadow: var(--mds-entity-shadow);
+  color: var(--mds-entity-color);
+  display: flex;
+}
+
+.spinner,
+.preview,
+.delete {
+  @apply
+    rounded
+    w-1100;
+
+  flex-shrink: 0;
+}
+
+.preview {
+
+  --mds-avatar-radius: var(--mds-entity-icon-radius);
+  --mds-avatar-color: var(--mds-entity-icon-color);
+  --mds-avatar-background-color: var(--mds-entity-icon-background);
+}
+
+.spinner,
+.preview {
+
+  @apply aspect-square;
+
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.spinner {
+  background-color: transparent;
+  display: none;
+  fill: var(--mds-entity-icon-color);
+}
+
+:host([await]:not([await="false"])) .spinner {
+  display: inline-flex;
+}
+
+mds-spinner {
+  @apply
+    h-900
+    w-900;
+}
+
+.infos {
+  @apply
+    gap-0
+    min-w-0;
+
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.details {
+  @apply gap-100;
+
+  align-items: center;
+  color: var(--mds-entity-detail-color);
+  display: flex;
+}
+
+.actions {
+  @apply gap-200;
+
+  align-items: center;
+  display: flex;
+}
+
+::slotted( [slot="action"] ) {
+  @apply
+    aspect-square
+    w-1100;
+
+  height: auto;
+}
+
+::slotted( * ) {
+  @apply truncate;
+
+  white-space: nowrap;
+}
+
+.title {
+  @apply
+    min-w-0
+    truncate;
+
+  display: flex;
+}
+
+@import './css/mds-entity-pref-contrast.css';
+@import './css/mds-entity-pref-theme.css';
+@import '../../tailwind/fouc.css';

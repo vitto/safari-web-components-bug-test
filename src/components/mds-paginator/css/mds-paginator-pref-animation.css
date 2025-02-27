@@ -1,0 +1,28 @@
+@tailwind utilities;
+
+@container style(--magma-pref-animation: reduce) {
+  :host {
+
+    --mds-paginator-scroll-behavior: auto;
+  }
+
+  :host,
+  .pages {
+    transition-duration: 0s;
+  }
+}
+
+@container style(--magma-pref-animation: system) {
+
+  @media (prefers-reduced-motion) {
+    :host {
+
+      --mds-paginator-scroll-behavior: auto;
+    }
+
+    :host,
+    .pages {
+      transition-duration: 0s;
+    }
+  }
+}

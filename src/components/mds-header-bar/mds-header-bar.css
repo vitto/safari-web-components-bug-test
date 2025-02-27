@@ -1,0 +1,85 @@
+@tailwind utilities;
+
+:host {
+
+  --mds-header-bar-hamburger-color: theme('colors.tone-neutral-03');
+
+  @apply
+    ease-out-expo
+    px-600
+    py-400;
+
+  background-color: theme('colors.tone-neutral');
+  box-shadow: theme('boxShadow.md-sharp');
+  display: flex;
+  inset: 0 0 auto;
+  interpolate-size: allow-keywords; /* not supported yet https://youtu.be/JN-nme9oF10 */
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  position: fixed;
+  transition-duration: theme('transitionDuration.500');
+  transition-property: background-color, border-radius, margin, max-width, transform, width;
+}
+
+.logo {
+  color: inherit;
+  display: flex;
+}
+
+.content {
+  @apply
+    gap-400
+    max-w-screen-wide;
+
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.actions {
+  @apply gap-600;
+
+  display: flex;
+}
+
+.nav {
+  @apply gap-400;
+
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.menu {
+
+  --mds-button-background: transparent;
+
+  fill: var(--mds-header-bar-hamburger-color);
+  padding: 0;
+}
+
+.menu::part(icon) {
+  @apply w-800;
+}
+
+:host([menu="desktop"]) .menu,
+:host([nav="desktop"]) .nav {
+  @apply tablet-max:hidden;
+}
+
+:host([menu="mobile"]) .menu,
+:host([nav="mobile"]) .nav {
+  @apply desktop:hidden;
+}
+
+:host([menu="none"]) .menu,
+:host([nav="none"]) .nav {
+  display: none;
+}
+
+@import './css/mds-header-bar-pref-animation.css';
+@import './css/mds-header-bar-pref-theme.css';
+@import './css/mds-header-bar-pref-contrast.css';
+@import '../../tailwind/fouc.css';

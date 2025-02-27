@@ -1,0 +1,69 @@
+@tailwind utilities;
+
+/**
+ * @prop --mds-video-wall-noise-background-color: Sets the background-color of the noise when active
+ * @prop --mds-video-wall-noise-background-size: Sets the background-color of the noise when active
+ * @prop --mds-video-wall-video-fit: Sets the object-fit of the video stream
+ */
+
+:host {
+
+  --mds-video-wall-noise-background-color: rgb(var(--variant-primary-03) / 0.8);
+  --mds-video-wall-noise-background-size: auto;
+  --mds-video-wall-video-fit: cover;
+
+  aspect-ratio: 16/9;
+  background-color: theme('colors.tone-neutral-02');
+  display: flex;
+  position: relative;
+}
+
+.content {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  z-index: 3;
+}
+
+video,
+.noise {
+  @apply
+    h-full
+    w-full;
+
+  inset: 0;
+  position: absolute;
+}
+
+video {
+  object-fit: var(--mds-video-wall-video-fit);
+  z-index: 1;
+}
+
+.noise {
+  background-color: var(--mds-video-wall-noise-background-color);
+  background-size: var(--mds-video-wall-noise-background-size);
+  z-index: 2;
+}
+
+.noise--classic {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAALElEQVQYV2NkwAEYoeIzGRgYtjAwMGxmYGAAs2ESvlBBkDowGyaBYSDpRgEAkLwKoa+v7O8AAAAASUVORK5CYII=');
+}
+
+.noise--sharp {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAOklEQVQoU2NkYGAwZoCAs2hssCAjNkFkMZACGMBqEswErMaDTEJWgNUkmBU4HYpNAYpJyI4ESWCYBAAe2A7Vb66lfAAAAABJRU5ErkJggg==');
+}
+
+.noise--soft {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAGCAYAAAD+Bd/7AAAAOElEQVQYV2NkYGAwZoCA51BaEpnPiKTgLFQCpgHMR1aA0wQpbEYzMDCArQKZAAMoRsOsBinAawIAOXkJ1Ff0CjwAAAAASUVORK5CYII=');
+}
+
+.noise--tv {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAMElEQVQYV2NkYGDwZcABGP8zKBuD5Bj/P4coEf0Kod8wSjH+Z5CVgki+RZc0HghJADPEICMR8Ep/AAAAAElFTkSuQmCC');
+}
+
+@import "./css/mds-video-wall-pref-animation.css";
+@import '../../tailwind/fouc.css';
