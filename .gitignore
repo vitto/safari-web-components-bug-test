@@ -2,6 +2,7 @@
 dist/
 www/
 node_modules/
+public/assets/
 public/stencil/
 public/build/
 public/host.config.json

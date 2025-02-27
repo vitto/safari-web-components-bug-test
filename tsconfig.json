@@ -38,7 +38,7 @@
           "src/meta/*"
         ],
         "@icon/*": [
-          "assets/svg/*"
+          "public/assets/svg/*"
         ],
         "@placeholder": [
           "https://via.placeholder.com"
